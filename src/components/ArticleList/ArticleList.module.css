@@ -1,0 +1,7 @@
+.article-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 26px;
+}
+
+/*# sourceMappingURL=ArticleList.module.css.map */

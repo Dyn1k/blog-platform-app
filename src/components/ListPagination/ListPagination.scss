@@ -1,0 +1,30 @@
+.list-pagination {
+  align-self: center;
+  display: flex;
+  column-gap: 7px;
+}
+
+.ant-pagination-item {
+  border: none;
+}
+.ant-pagination-item-active {
+  background: #1890ff;
+  color: #ffffff;
+  border-radius: 4px;
+}
+
+.ant-pagination-item a {
+  height: 24px;
+  line-height: 24px;
+}
+
+.ant-pagination-item-active a {
+  color: #ffffff;
+  height: 24px;
+  line-height: 24px;
+}
+
+.ant-pagination-prev .ant-pagination-item-link,
+.ant-pagination-next .ant-pagination-item-link {
+  border: none;
+}

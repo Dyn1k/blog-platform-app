@@ -1,0 +1,21 @@
+.button {
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.85);
+  border-radius: 5px;
+  width: 109px;
+  height: 51px;
+  line-height: 28px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.green {
+  color: #52C41A;
+  border: 1px solid #52C41A;
+}
+
+.without-border {
+  border: none;
+}
+
+/*# sourceMappingURL=Button.css.map */
