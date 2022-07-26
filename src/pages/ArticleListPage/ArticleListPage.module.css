@@ -1,0 +1,11 @@
+.container {
+  padding: 30px 0;
+}
+
+.article-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 26px;
+}
+
+/*# sourceMappingURL=ArticleListPage.module.css.map */

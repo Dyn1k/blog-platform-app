@@ -7,6 +7,14 @@
   line-height: 28px;
   background-color: transparent;
   cursor: pointer;
+
+  &:hover {
+    color: #1890ff;
+  }
+
+  &:hover:not(.without-border, .avatar) {
+    border: 1px solid #1890ff;
+  }
 }
 
 .green {
@@ -16,4 +24,25 @@
 
 .without-border {
   border: none;
+}
+
+.create-article {
+  font-size: 14px;
+  line-height: 22px;
+  width: 112px;
+  height: 31px;
+}
+
+.avatar {
+  border: none;
+  display: flex;
+  column-gap: 13px;
+  width: auto;
+  height: auto;
+  align-items: center;
+}
+
+.black {
+  border: 1px solid rgba(0, 0, 0, 0.75);
+  color: rgba(0, 0, 0, 0.75);
 }
