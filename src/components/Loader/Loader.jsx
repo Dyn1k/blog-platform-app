@@ -1,7 +1,5 @@
 import React from 'react';
-
 import { SyncOutlined } from '@ant-design/icons';
-
 import classes from './Loader.module.scss';
 
 const Loader = () => (

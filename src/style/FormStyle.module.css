@@ -31,6 +31,15 @@
   box-shadow: 0 22px 106px rgba(0, 0, 0, 0.07), 0 9px 44.2843px rgba(0, 0, 0, 0.05), 0 4px 23.6765px rgba(0, 0, 0, 0.04), 0 2px 13px rgba(0, 0, 0, 0.03), 0 1px 7px rgba(0, 0, 0, 0.02), 0 0.6px 3px rgba(0, 0, 0, 0.02);
   border-radius: 6px;
 }
+.form--article {
+  width: 100%;
+}
+.form__tag-wrapper {
+  display: flex;
+  column-gap: 17px;
+  height: 40px;
+  align-items: center;
+}
 .form__title {
   font-weight: 500;
   font-size: 20px;
@@ -43,6 +52,9 @@
   display: flex;
   flex-direction: column;
   row-gap: 12px;
+}
+.form__label-container--article {
+  row-gap: 21px;
 }
 .form__label {
   color: #262626;
@@ -80,7 +92,10 @@
   border: 1px solid #d9d9d9;
   display: block;
   width: 100%;
-  transition: all 0.3s;
+  transition: border-color, box-shadow 0.3s;
+}
+.form__input--article {
+  height: 168px;
 }
 .form__input:hover {
   border-color: #40a9ff;
@@ -104,6 +119,15 @@
   border-color: #F5222D;
   box-shadow: 0 0 0 2px rgba(255, 77, 79, 0.2);
 }
+.form__input-group {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.form__input-group .form__input {
+  width: 300px;
+}
 .form__button {
   margin-top: 21px;
   border-radius: 4px;
@@ -113,6 +137,9 @@
   padding-bottom: 7px;
   padding-top: 7px;
   height: auto;
+}
+.form__button--article {
+  width: 319px;
 }
 .form__link {
   margin-top: 8px;

@@ -11,13 +11,23 @@
 .button:hover {
   color: #1890ff;
 }
-.button:hover:not(.without-border, .avatar) {
+.button:hover:not(.without-border, .avatar, .blue) {
   border: 1px solid #1890ff;
 }
 
-.green {
+.green, button:hover.blue {
   color: #52C41A;
   border: 1px solid #52C41A;
+}
+
+.red {
+  color: #F5222D;
+  border: 1px solid #F5222D;
+}
+
+.blue {
+  color: #1890FF;
+  border: 1px solid #1890FF;
 }
 
 .without-border {
@@ -43,6 +53,19 @@
 .black {
   border: 1px solid rgba(0, 0, 0, 0.75);
   color: rgba(0, 0, 0, 0.75);
+}
+
+.article-form {
+  height: inherit;
+  border-radius: 4px;
+}
+
+.article-page {
+  font-size: 14px;
+  line-height: 22px;
+  padding: 5px 16px 4px;
+  height: auto;
+  width: auto;
 }
 
 /*# sourceMappingURL=Button.css.map */

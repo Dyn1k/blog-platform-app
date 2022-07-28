@@ -1,11 +1,10 @@
-/* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable */
+/* eslint-disable no-param-reassign, no-restricted-syntax, no-shadow */
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import classes from '../../style/FormStyle.module.scss';
 import { Alert, Button } from 'antd';
+import classes from '../../style/FormStyle.module.scss';
 import { updateCurrentUser } from '../../store/userSlice';
 import Loader from '../../components/Loader';
 
@@ -35,7 +34,6 @@ const EditProfilePage = () => {
       updateCurrentUser({ user: { ...data, token } })
     );
     if (response.type.endsWith('rejected')) {
-      // eslint-disable-next-line no-shadow
       const { username, email } = response.payload.error;
       if (username) {
         setError('username', {
@@ -154,7 +152,7 @@ const EditProfilePage = () => {
               {...register('image', {
                 pattern: {
                   value:
-                    /[-a-zA-Z0-9@:%_+.~#?&\/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_+.~#?&\/=]*)?/gi,
+                    /[-a-zA-Z0-9@:%_+.~#?&\\/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_+.~#?&\\/=]*)?/gi,
                   message: 'Invalid url',
                 },
               })}

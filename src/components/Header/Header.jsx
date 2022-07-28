@@ -28,7 +28,9 @@ const Header = () => {
 
   const authorized = (
     <>
-      <Button className="green create-article">Create article</Button>
+      <Button isLink to="/new-article" className="green create-article">
+        Create article
+      </Button>
       <Button isLink to="/profile" className="avatar">
         {user?.username}
         <Avatar src={userAvatar} size={46} />

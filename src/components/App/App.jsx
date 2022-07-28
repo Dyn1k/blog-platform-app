@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 import { getCurrentUser } from '../../store/userSlice';
+import routeTypes from './routeTypes';
 import 'antd/dist/antd.min.css';
 import './App.module.scss';
 import ArticleList from '../../pages/ArticleListPage';
@@ -13,6 +14,8 @@ import Authorized from '../../hoc/Authorized';
 import EditProfilePage from '../../pages/EditProfilePage';
 import NotAuthorized from '../../hoc/NotAuthorized';
 import NotFoundPage from '../../pages/NotFoundPage';
+import CreateArticlePage from '../../pages/CreateArticlePage';
+import EditArticlePage from '../../pages/EditArticlePage';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -26,10 +29,10 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<ArticleList />} />
-        <Route path="/articles" element={<ArticleList />} />
-        <Route path="/articles/:slug" element={<ArticlePage />} />
+        <Route path={routeTypes.articles} element={<ArticleList />} />
+        <Route path={routeTypes.article} element={<ArticlePage />} />
         <Route
-          path="/sign-up"
+          path={routeTypes.signUp}
           element={
             <Authorized>
               <SignUpPage />
@@ -37,7 +40,7 @@ const App = () => {
           }
         />
         <Route
-          path="/sign-in"
+          path={routeTypes.signIn}
           element={
             <Authorized>
               <SignInPage />
@@ -45,10 +48,26 @@ const App = () => {
           }
         />
         <Route
-          path="/profile"
+          path={routeTypes.profile}
           element={
             <NotAuthorized>
               <EditProfilePage />
+            </NotAuthorized>
+          }
+        />
+        <Route
+          path={routeTypes.newArticle}
+          element={
+            <NotAuthorized>
+              <CreateArticlePage />
+            </NotAuthorized>
+          }
+        />
+        <Route
+          path={routeTypes.editArticle}
+          element={
+            <NotAuthorized>
+              <EditArticlePage />
             </NotAuthorized>
           }
         />

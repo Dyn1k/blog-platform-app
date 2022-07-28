@@ -1,4 +1,3 @@
-/* eslint-disable  react/jsx-props-no-spreading */
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';

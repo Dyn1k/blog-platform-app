@@ -21,6 +21,17 @@
   box-shadow: 0 22px 106px rgba(0, 0, 0, 0.07), 0 9px 44.2843px rgba(0, 0, 0, 0.05), 0 4px 23.6765px rgba(0, 0, 0, 0.04), 0 2px 13px rgba(0, 0, 0, 0.03), 0 1px 7px rgba(0, 0, 0, 0.02), 0 0.6px 3px rgba(0, 0, 0, 0.02);
   border-radius: 6px;
 
+  &--article {
+    width: 100%;
+  }
+
+  &__tag-wrapper {
+    display: flex;
+    column-gap: 17px;
+    height: 40px;
+    align-items: center;
+  }
+
   &__title {
     font-weight: 500;
     font-size: 20px;
@@ -35,10 +46,12 @@
     flex-direction: column;
     row-gap: 12px;
 
+    &--article {
+      row-gap: 21px;
+    }
   }
 
   &__label {
-
     color: #262626;
     line-height: 22px;
   }
@@ -81,7 +94,11 @@
     border: 1px solid #d9d9d9;
     display: block;
     width: 100%;
-    transition: all .3s;
+    transition: border-color, box-shadow  .3s;
+
+    &--article {
+      height: 168px;
+    }
 
     &:hover {
       border-color: #40a9ff;
@@ -111,6 +128,17 @@
     }
   }
 
+  &__input-group {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &__input-group &__input {
+    width: 300px;
+  }
+
   &__button {
     margin-top: 21px;
     border-radius: 4px;
@@ -120,6 +148,10 @@
     padding-bottom: 7px;
     padding-top: 7px;
     height: auto;
+
+    &--article {
+      width: 319px;
+    }
   }
 
   &__link {
@@ -143,7 +175,6 @@
   display: block;
   width: 16px;
   height: 16px;
-
 
   input[type='checkbox'] {
     display: none;

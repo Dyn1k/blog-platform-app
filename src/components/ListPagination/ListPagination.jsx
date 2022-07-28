@@ -1,10 +1,7 @@
-/* eslint-disable */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setPage } from '../../store/articlesSlice';
-
 import { Pagination } from 'antd';
-
+import { setPage } from '../../store/articlesSlice';
 import './ListPagination.scss';
 
 const ListPagination = () => {
@@ -13,19 +10,18 @@ const ListPagination = () => {
   const { articlesCount, page } = useSelector((state) => state.articles);
 
   return (
-    <>
-      <Pagination
-        className="list-pagination"
-        size="small"
-        pageSize="5"
-        showSizeChanger={false}
-        total={articlesCount}
-        current={page}
-        onChange={(page) => {
-          dispatch(setPage({ page }));
-        }}
-      />
-    </>
+    <Pagination
+      className="list-pagination"
+      size="small"
+      pageSize="5"
+      showSizeChanger={false}
+      total={articlesCount}
+      current={page}
+      /* eslint-disable-next-line no-shadow */
+      onChange={(page) => {
+        dispatch(setPage({ page }));
+      }}
+    />
   );
 };
 

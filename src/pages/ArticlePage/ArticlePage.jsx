@@ -1,26 +1,30 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Alert } from 'antd';
 import { useParams } from 'react-router-dom';
-import { fetchArticle, unmountingArticle } from '../../store/articlesSlice';
+import { fetchArticle } from '../../store/articlesSlice';
 import Article from '../../components/Article';
 import Loader from '../../components/Loader';
 import classes from './ArticlePage.module.scss';
 
 const ArticlePage = () => {
-  const { article, showBody, error, status } = useSelector(
-    (state) => state.articles
-  );
-  const dispatch = useDispatch();
-  const { slug } = useParams();
-  useEffect(() => {
-    dispatch(fetchArticle(slug));
-    return () => dispatch(unmountingArticle());
-  }, [dispatch]);
+  const [article, setArticle] = useState();
 
-  const renderArticle = article ? (
-    <Article data={article} showBody={showBody} />
-  ) : null;
+  const dispatch = useDispatch();
+  const { error, status } = useSelector((state) => state.articles);
+  const { slug } = useParams();
+
+  useEffect(() => {
+    (async () => {
+      const {
+        // eslint-disable-next-line no-shadow
+        payload: { article },
+      } = await dispatch(fetchArticle(slug));
+      setArticle(article);
+    })();
+  }, [dispatch, slug]);
+
+  const renderArticle = article ? <Article {...article} /> : null;
 
   const renderErrorMessage = error && (
     <Alert
@@ -35,9 +39,9 @@ const ArticlePage = () => {
 
   return (
     <div className={classes.container}>
+      {renderErrorMessage}
       {renderSpinner}
       {renderArticle}
-      {renderErrorMessage}
     </div>
   );
 };
