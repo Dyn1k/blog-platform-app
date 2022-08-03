@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { Alert, Button } from 'antd';
-import { registrationUser } from '../../store/userSlice';
+import { clearError, registrationUser } from '../../store/userSlice';
 import Loader from '../../components/Loader';
 import classes from '../../style/FormStyle.module.scss';
 
@@ -22,6 +22,10 @@ const SignUpPage = () => {
     formState: { errors },
     getValues,
   } = useForm();
+
+  useEffect(() => {
+    if (error) dispatch(clearError());
+  }, []);
 
   const handleRegistration = async (data) => {
     const { username, email, password } = data;

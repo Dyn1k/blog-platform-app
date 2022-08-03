@@ -33,7 +33,7 @@ const ArticleForm = ({ action, title, article }) => {
 
     // eslint-disable-next-line no-shadow
     const { title, description, body } = data;
-    const newData = { title, description, body, tagList };
+    const newData = { title, description, body: body.trim(), tagList };
     if (article?.slug) newData.slug = article?.slug;
 
     const response = await dispatch(
@@ -118,8 +118,9 @@ const ArticleForm = ({ action, title, article }) => {
                 required: 'Title is required',
                 maxLength: {
                   value: 200,
-                  message: 'Title cannot be longer than 300 characters',
+                  message: 'Title cannot be longer than 200 characters',
                 },
+                setValueAs: (value) => value.trim(),
               })}
               defaultValue={article?.title}
             />
@@ -139,8 +140,9 @@ const ArticleForm = ({ action, title, article }) => {
                 required: 'Description is required',
                 maxLength: {
                   value: 700,
-                  message: 'Description cannot be longer than 1000 characters',
+                  message: 'Description cannot be longer than 700 characters',
                 },
+                setValueAs: (value) => value.trim(),
               })}
             />
             {showAnError(errors.description)}
@@ -155,6 +157,7 @@ const ArticleForm = ({ action, title, article }) => {
               defaultValue={article?.body}
               {...register('body', {
                 required: 'Text is required',
+                setValueAs: (value) => value.trim(),
               })}
             />
             {showAnError(errors.body)}

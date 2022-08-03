@@ -72,4 +72,14 @@
   border-color: #1890FF;
 }
 
+@media screen and (max-width: 1300px) {
+  .popconfirm {
+    left: -249px;
+  }
+  .arrow {
+    left: auto;
+    right: -6px;
+  }
+}
+
 /*# sourceMappingURL=Popconfirm.module.css.map */

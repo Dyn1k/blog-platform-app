@@ -64,3 +64,13 @@
   }
 }
 
+@media screen and (max-width: 1300px) {
+  .popconfirm {
+    left: -249px;
+  }
+
+  .arrow {
+    left: auto;
+    right: -6px;
+  }
+}

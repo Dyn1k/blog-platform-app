@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Alert, Button } from 'antd';
-import { loginUser } from '../../store/userSlice';
+import { loginUser, clearError } from '../../store/userSlice';
 import Loader from '../../components/Loader';
 import classes from '../../style/FormStyle.module.scss';
 
@@ -21,6 +21,10 @@ const SignInPage = () => {
     register,
     formState: { errors },
   } = useForm();
+
+  useEffect(() => {
+    if (error) dispatch(clearError());
+  }, []);
 
   const handleLogin = async (data) => {
     const { email, password } = data;
